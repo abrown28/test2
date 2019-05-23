@@ -1,0 +1,69 @@
+<html>
+    <head>
+        <title>Testing</title>
+        <script type="text/javascript" src="http://code.jquery.com/jquery-1.11.1.min.js"></script>
+        <script type="text/javascript" src="https://golden-layout.com/files/latest/js/goldenlayout.min.js"></script>
+        <link type="text/css" rel="stylesheet" href="https://golden-layout.com/files/latest/css/goldenlayout-base.css" />
+        <link type="text/css" rel="stylesheet" href="https://golden-layout.com/files/latest/css/goldenlayout-dark-theme.css" />
+    </head>
+    <body>
+        <!-- <p>This is a new window ID: <span id="routingId"></span></p>
+        <a href="javascript:newWindow()">New Window</a>
+        <ul id="log">
+        </ul> -->
+        <script>
+            // const { webFrame, ipcRenderer } = require('electron')
+            
+            
+
+            // function newWindow() {
+            //     ipcRenderer.send('new-window', 'ping')
+            // }
+
+            // const ul = document.getElementById('log');
+            // ipcRenderer.on('log', (event, arg) => {
+            //     const li = document.createElement("li");
+            //     const tn = document.createTextNode(arg);
+            //     li.appendChild(tn);
+            //     ul.appendChild(li);
+            // })
+
+            // function onload() {
+            //     id = require('electron').remote.getCurrentWindow().id;
+            //     for(i=1; i < id; ++i)
+            //         ipcRenderer.sendTo(i, 'log', `new window id: ${id}`);
+
+            //     document.getElementById('routingId').innerHTML = require('electron').remote.getCurrentWindow().id;
+            // }
+
+
+            var config = {
+                content: [{
+                    type: 'row',
+                    content:[{
+                        type: 'component',
+                        componentName: 'testComponent',
+                        componentState: { label: 'A' }
+                    },{
+                        type: 'column',
+                        content:[{
+                            type: 'component',
+                            componentName: 'testComponent',
+                            componentState: { label: 'B' }
+                        },{
+                            type: 'component',
+                            componentName: 'testComponent',
+                            componentState: { label: 'C' }
+                        }]
+                    }]
+                }]
+            };
+            var myLayout = new GoldenLayout( config );
+            myLayout.registerComponent( 'testComponent', function( container, componentState ){
+                container.getElement().html( '<h1 style="color:white">' + componentState.label + '</h1>' );
+            });
+            myLayout.init();
+
+        </script>
+    </body>
+</html>
