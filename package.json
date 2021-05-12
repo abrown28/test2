@@ -13,6 +13,6 @@
     "electron": "^7.2.4"
   },
   "dependencies": {
-    "codemirror": "^5.47.0"
+    "codemirror": "^5.58.2"
   }
 }
